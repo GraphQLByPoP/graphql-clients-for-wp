@@ -10,6 +10,7 @@ use PoP\APIEndpointsForWP\EndpointHandlers\AbstractEndpointHandler;
 
 abstract class AbstractClient extends AbstractEndpointHandler
 {
-    use ClientTrait;
-    use WPClientTrait;
+    use ClientTrait, WPClientTrait {
+        WPClientTrait::getComponentBaseURL insteadof ClientTrait;
+    }
 }

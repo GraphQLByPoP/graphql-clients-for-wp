@@ -13,9 +13,9 @@ class VoyagerClient extends AbstractClient
     {
         return ComponentConfiguration::getVoyagerClientEndpoint();
     }
-    protected function getVendorDirPath(): string
+    protected function getClientRelativePath(): string
     {
-        return '/vendor/leoloso/pop-graphql-voyager';
+        return '/clients/voyager';
     }
     protected function getJSFilename(): string
     {

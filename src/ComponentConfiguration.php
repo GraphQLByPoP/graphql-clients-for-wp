@@ -13,18 +13,20 @@ class ComponentConfiguration
     private static $graphiQLClientEndpoint;
     private static $voyagerClientEndpoint;
 
-    private static $getSiteURL;
+    private static $getGraphQLClientsComponentURL;
 
-    public static function getSiteURL(): string
+    public static function getGraphQLClientsComponentURL(): string
     {
         // Define properties
-        $envVariable = Environment::SITE_URL;
-        $selfProperty = &self::$getSiteURL;
+        $envVariable = Environment::GRAPHQL_CLIENTS_COMPONENT_URL;
+        $selfProperty = &self::$getGraphQLClientsComponentURL;
+        $defaultValue = '';
 
         // Initialize property from the environment/hook
         self::maybeInitializeConfigurationValue(
             $envVariable,
-            $selfProperty
+            $selfProperty,
+            $defaultValue
         );
         return $selfProperty;
     }

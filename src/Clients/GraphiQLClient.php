@@ -13,9 +13,9 @@ class GraphiQLClient extends AbstractClient
     {
         return ComponentConfiguration::getGraphiQLClientEndpoint();
     }
-    protected function getVendorDirPath(): string
+    protected function getClientRelativePath(): string
     {
-        return '/vendor/leoloso/pop-graphiql';
+        return '/clients/graphiql';
     }
     protected function getJSFilename(): string
     {

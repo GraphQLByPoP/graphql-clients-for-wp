@@ -13,9 +13,18 @@ trait WPClientTrait
      *
      * @return string
      */
-    protected function getBaseURL(): string
+    protected function getComponentBaseURL(): ?string
     {
-        return ComponentConfiguration::getSiteURL();
+        return ComponentConfiguration::getGraphQLClientsComponentURL();
+    }
+    /**
+     * Base Dir
+     *
+     * @return string
+     */
+    protected function getComponentBaseDir(): string
+    {
+        return dirname(__FILE__, 3);
     }
 
     /**
