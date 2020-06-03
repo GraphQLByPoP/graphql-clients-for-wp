@@ -9,6 +9,15 @@ use PoP\GraphQLClientsForWP\Clients\AbstractClient;
 
 class GraphiQLClient extends AbstractClient
 {
+    /**
+     * Indicate if the client is disabled
+     *
+     * @return boolean
+     */
+    protected function isClientDisabled(): bool
+    {
+        return ComponentConfiguration::isGraphiQLClientEndpointDisabled();
+    }
     protected function getEndpoint(): string
     {
         return ComponentConfiguration::getGraphiQLClientEndpoint();

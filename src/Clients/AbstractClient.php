@@ -13,4 +13,29 @@ abstract class AbstractClient extends AbstractEndpointHandler
     use ClientTrait, WPClientTrait {
         WPClientTrait::getComponentBaseURL insteadof ClientTrait;
     }
+
+    /**
+     * Initialize the client
+     *
+     * @return void
+     */
+    public function initialize(): void
+    {
+        /**
+         * Subject to the endpoint having been defined
+         */
+        if (!$this->isClientDisabled()) {
+            parent::initialize();
+        }
+    }
+
+    /**
+     * Indicate if the client is disabled
+     *
+     * @return boolean
+     */
+    protected function isClientDisabled(): bool
+    {
+        return false;
+    }
 }

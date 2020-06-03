@@ -9,6 +9,15 @@ use PoP\GraphQLClientsForWP\Clients\AbstractClient;
 
 class VoyagerClient extends AbstractClient
 {
+    /**
+     * Indicate if the client is disabled
+     *
+     * @return boolean
+     */
+    protected function isClientDisabled(): bool
+    {
+        return ComponentConfiguration::isVoyagerClientEndpointDisabled();
+    }
     protected function getEndpoint(): string
     {
         return ComponentConfiguration::getVoyagerClientEndpoint();
