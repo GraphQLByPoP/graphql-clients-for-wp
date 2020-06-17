@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PoP\GraphQLClientsForWP\Clients;
 
 use PoP\GraphQLClientsForWP\ComponentConfiguration;
-use PoP\APIEndpointsForWP\ComponentConfiguration as APIEndpointsForWPComponentConfiguration;
+use PoP\GraphQLEndpointForWP\ComponentConfiguration as GraphQLEndpointForWPComponentConfiguration;
 
 trait WPClientTrait
 {
@@ -35,6 +35,6 @@ trait WPClientTrait
      */
     protected function getEndpointURL(): string
     {
-        return APIEndpointsForWPComponentConfiguration::getGraphQLAPIEndpoint();
+        return GraphQLEndpointForWPComponentConfiguration::getGraphQLAPIEndpoint();
     }
 }
