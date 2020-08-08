@@ -1,5 +1,5 @@
 {
-    "name": "getpop/graphql-clients-for-wp",
+    "name": "graphql-by-pop/graphql-clients-for-wp",
     "type": "library",
     "description": "GraphiQL and Voyager GraphQL Clients for WordPress",
     "keywords": [
@@ -21,7 +21,7 @@
         "php": "~7.2",
         "getpop/api-clients": "dev-master",
         "getpop/api-endpoints-for-wp": "dev-master",
-        "getpop/graphql-server": "dev-master"
+        "graphql-by-pop/graphql-server": "dev-master"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.12",
