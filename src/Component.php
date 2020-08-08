@@ -6,7 +6,7 @@ namespace GraphQLByPoP\GraphQLClientsForWP;
 
 use PoP\Root\Component\AbstractComponent;
 use PoP\Root\Component\YAMLServicesTrait;
-use PoP\GraphQLServer\Component as GraphQLServerComponent;
+use GraphQLByPoP\GraphQLServer\Component as GraphQLServerComponent;
 use PoP\Root\Component\CanDisableComponentTrait;
 use PoP\ComponentModel\Container\ContainerBuilderUtils;
 use PoP\ComponentModel\Facades\Instances\InstanceManagerFacade;
@@ -25,7 +25,7 @@ class Component extends AbstractComponent
         return [
             \PoP\APIClients\Component::class,
             \PoP\APIEndpointsForWP\Component::class,
-            \PoP\GraphQLServer\Component::class,
+            \GraphQLByPoP\GraphQLServer\Component::class,
         ];
     }
 
