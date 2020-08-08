@@ -3,7 +3,7 @@
     "type": "library",
     "description": "GraphiQL and Voyager GraphQL Clients for WordPress",
     "keywords": [
-        "PoP",
+        "GraphQLByPoP",
         "graphql-clients-for-wp"
     ],
     "homepage": "https://github.com/GraphQLByPoP/graphql-clients-for-wp",
@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PoP\\GraphQLClientsForWP\\": "src"
+            "GraphQLByPoP\\GraphQLClientsForWP\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PoP\\GraphQLClientsForWP\\": "tests"
+            "GraphQLByPoP\\GraphQLClientsForWP\\": "tests"
         }
     },
     "scripts": {

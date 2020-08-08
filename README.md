@@ -26,7 +26,7 @@ Initialize the component:
 
 ``` php
 \PoP\Root\ComponentLoader::initializeComponents([
-    \PoP\GraphQLClientsForWP\Component::class,
+    \GraphQLByPoP\GraphQLClientsForWP\Component::class,
 ]);
 ```
 

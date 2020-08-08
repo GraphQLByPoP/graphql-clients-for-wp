@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoP\GraphQLClientsForWP;
+namespace GraphQLByPoP\GraphQLClientsForWP;
 
 use PoP\APIEndpoints\EndpointUtils;
 use PoP\ComponentModel\ComponentConfiguration\EnvironmentValueHelpers;

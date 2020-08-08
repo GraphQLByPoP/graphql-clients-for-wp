@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PoP\GraphQLClientsForWP\Clients;
+namespace GraphQLByPoP\GraphQLClientsForWP\Clients;
 
-use PoP\GraphQLClientsForWP\ComponentConfiguration;
-use PoP\GraphQLClientsForWP\Clients\AbstractClient;
+use GraphQLByPoP\GraphQLClientsForWP\ComponentConfiguration;
+use GraphQLByPoP\GraphQLClientsForWP\Clients\AbstractClient;
 
 class VoyagerClient extends AbstractClient
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\GraphQLClientsForWP\Clients;
+namespace GraphQLByPoP\GraphQLClientsForWP\Clients;
 
-use PoP\GraphQLClientsForWP\ComponentConfiguration;
+use GraphQLByPoP\GraphQLClientsForWP\ComponentConfiguration;
 use PoP\GraphQLEndpointForWP\ComponentConfiguration as GraphQLEndpointForWPComponentConfiguration;
 
 trait WPClientTrait
