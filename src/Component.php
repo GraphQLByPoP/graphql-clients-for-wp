@@ -6,7 +6,7 @@ namespace PoP\GraphQLClientsForWP;
 
 use PoP\Root\Component\AbstractComponent;
 use PoP\Root\Component\YAMLServicesTrait;
-use PoP\GraphQL\Component as GraphQLComponent;
+use PoP\GraphQLServer\Component as GraphQLServerComponent;
 use PoP\Root\Component\CanDisableComponentTrait;
 use PoP\ComponentModel\Container\ContainerBuilderUtils;
 use PoP\ComponentModel\Facades\Instances\InstanceManagerFacade;
@@ -25,7 +25,7 @@ class Component extends AbstractComponent
         return [
             \PoP\APIClients\Component::class,
             \PoP\APIEndpointsForWP\Component::class,
-            \PoP\GraphQL\Component::class,
+            \PoP\GraphQLServer\Component::class,
         ];
     }
 
@@ -46,7 +46,7 @@ class Component extends AbstractComponent
 
     protected static function resolveEnabled()
     {
-        return GraphQLComponent::isEnabled();
+        return GraphQLServerComponent::isEnabled();
     }
 
     /**
