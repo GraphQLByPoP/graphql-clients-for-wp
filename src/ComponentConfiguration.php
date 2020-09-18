@@ -23,8 +23,6 @@ class ComponentConfiguration
     /**
      * URL under which the clients are loaded.
      * Needed to convert relative paths to absolute URLs
-     *
-     * @return string
      */
     public static function getGraphQLClientsComponentURL(): string
     {
@@ -44,8 +42,6 @@ class ComponentConfiguration
 
     /**
      * Is the GraphiQL client disabled?
-     *
-     * @return string
      */
     public static function isGraphiQLClientEndpointDisabled(): bool
     {
@@ -67,8 +63,6 @@ class ComponentConfiguration
 
     /**
      * GraphiQL client endpoint, to be executed against the GraphQL single endpoint
-     *
-     * @return string
      */
     public static function getGraphiQLClientEndpoint(): string
     {
@@ -90,8 +84,6 @@ class ComponentConfiguration
 
     /**
      * Is the Voyager client disabled?
-     *
-     * @return string
      */
     public static function isVoyagerClientEndpointDisabled(): bool
     {
@@ -113,8 +105,6 @@ class ComponentConfiguration
 
     /**
      * Voyager client endpoint, to be executed against the GraphQL single endpoint
-     *
-     * @return string
      */
     public static function getVoyagerClientEndpoint(): string
     {

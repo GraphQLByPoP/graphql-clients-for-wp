@@ -81,7 +81,7 @@ function updateURL() {
  * '  tRue  ','ON', and '1   ' will all evaluate as true.
  *
  * Taken from https://stackoverflow.com/a/264180
- * 
+ *
  */
 function strToBool(s)
 {
