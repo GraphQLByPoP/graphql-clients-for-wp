@@ -4,24 +4,8 @@ declare(strict_types=1);
 
 namespace GraphQLByPoP\GraphQLClientsForWP\Clients;
 
-use GraphQLByPoP\GraphQLClientsForWP\ComponentConfiguration;
-use GraphQLByPoP\GraphQLClientsForWP\Clients\AbstractClient;
-
-class GraphiQLClient extends AbstractClient
+class GraphiQLClient extends AbstractGraphiQLClient
 {
-    /**
-     * Indicate if the client is disabled
-     *
-     * @return boolean
-     */
-    protected function isClientDisabled(): bool
-    {
-        return ComponentConfiguration::isGraphiQLClientEndpointDisabled();
-    }
-    protected function getEndpoint(): string
-    {
-        return ComponentConfiguration::getGraphiQLClientEndpoint();
-    }
     protected function getClientRelativePath(): string
     {
         return '/clients/graphiql';
@@ -29,5 +13,13 @@ class GraphiQLClient extends AbstractClient
     protected function getJSFilename(): string
     {
         return 'graphiql.js';
+    }
+
+    /**
+     * Check if GraphiQL Explorer must be enabled or not
+     */
+    protected function matchesGraphiQLExplorerRequiredState(bool $useGraphiQLExplorer): bool
+    {
+        return !$useGraphiQLExplorer;
     }
 }
