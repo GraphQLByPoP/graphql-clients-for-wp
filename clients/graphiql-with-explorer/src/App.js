@@ -174,15 +174,20 @@ if (Object.keys(directiveVersionConstraints).length) {
 }
 
 function fetcher(params: Object): Object {
-  // console.log('apiURL', apiURL);
+  let headers = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  };
+  // If there is a nonce in the global object, attach it
+  const nonce = (window.graphiQLWithExplorerClientForWP && window.graphiQLWithExplorerClientForWP.nonce) ? window.graphiQLWithExplorerClientForWP.nonce : null;
+  if (nonce != null) {
+    headers['X-WP-Nonce'] = nonce;
+  }
   return fetch(
     apiURL,
     {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
+      headers: headers,
       body: JSON.stringify(params),
       credentials: 'include'
     }
@@ -205,9 +210,37 @@ type State = {
   explorerIsOpen: boolean
 };
 
+const DEFAULT_QUERY = `# Welcome to GraphiQL
+#
+# GraphiQL is an in-browser tool for writing, validating, and
+# testing GraphQL queries.
+#
+# Type queries into this side of the screen, and you will see intelligent
+# typeaheads aware of the current GraphQL type schema and live syntax and
+# validation errors highlighted within the text.
+#
+# GraphQL queries typically start with a "{" character. Lines that starts
+# with a # are ignored.
+#
+# An example GraphQL query might look like:
+#
+#   {
+#     field(arg: "value") {
+#       subField
+#     }
+#   }
+#
+# Run the query (at any moment):
+#
+#   Ctrl-Enter (or press the play button above)
+#
+`
+
+var defaultQuery = (window.graphiQLWithExplorerClientForWP && window.graphiQLWithExplorerClientForWP.defaultQuery) ? window.graphiQLWithExplorerClientForWP.defaultQuery : DEFAULT_QUERY;
+
 class App extends Component<{}, State> {
   _graphiql: GraphiQL;
-  state = { schema: null, query: null, explorerIsOpen: true };
+  state = { schema: null, query: defaultQuery, explorerIsOpen: true };
 
   componentDidMount() {
     fetcher({
@@ -289,6 +322,8 @@ class App extends Component<{}, State> {
 
   render() {
     const { query, schema } = this.state;
+    // Inject settings from the application
+    var response = (window.graphiQLWithExplorerClientForWP && window.graphiQLWithExplorerClientForWP.response) ? window.graphiQLWithExplorerClientForWP.response : "Click the \"Execute Query\" button, or press Ctrl+Enter (Command+Enter in Mac)";
     return (
       <div className="graphiql-container">
         <GraphiQLExplorer
@@ -309,6 +344,7 @@ class App extends Component<{}, State> {
           schema={schema}
           query={query}
           onEditQuery={this._handleEditQuery}
+          response={response}
         >
           <GraphiQL.Toolbar>
             <GraphiQL.Button
