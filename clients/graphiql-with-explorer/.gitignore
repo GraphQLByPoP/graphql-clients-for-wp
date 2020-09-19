@@ -17,6 +17,9 @@
 # No need for all the maps
 /build/static/js/*.map
 /build/static/css/*.map
+/build/asset-manifest.json
+/build/precache-manifest.*
+/build/service-worker.js
 
 # misc
 .DS_Store

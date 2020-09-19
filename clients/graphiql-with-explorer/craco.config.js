@@ -14,4 +14,15 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    {
+      plugin: {
+        overrideWebpackConfig: ({ webpackConfig }) => {
+          webpackConfig.plugins[5].options.filename = 'static/css/[name].css';
+          return webpackConfig;
+        },
+      },
+      options: {}
+    }
+  ],
 }
