@@ -50,38 +50,21 @@ if (parameters.variables) {
   }
 }
 
-// // When the query and variables string is edited, update the URL bar so
-// // that it can be easily shared.
-// function onEditQuery(newQuery) {
-//   parameters.query = newQuery;
-//   updateURL();
-// }
-
-// function onEditVariables(newVariables) {
-//   parameters.variables = newVariables;
-//   updateURL();
-// }
-
-// function onEditOperationName(newOperationName) {
-//   parameters.operationName = newOperationName;
-//   updateURL();
-// }
-
-// function updateURL() {
-//   var newSearch =
-//     '?' +
-//     Object.keys(parameters)
-//       .filter(function(key) {
-//         return Boolean(parameters[key]);
-//       })
-//       .map(function(key) {
-//         return (
-//           encodeURIComponent(key) + '=' + encodeURIComponent(parameters[key])
-//         );
-//       })
-//       .join('&');
-//   window.history.replaceState(null, null, newSearch);
-// }
+function updateURL() {
+  var newSearch =
+    '?' +
+    Object.keys(parameters)
+      .filter(function(key) {
+        return Boolean(parameters[key]);
+      })
+      .map(function(key) {
+        return (
+          encodeURIComponent(key) + '=' + encodeURIComponent(parameters[key])
+        );
+      })
+      .join('&');
+  window.history.replaceState(null, null, newSearch);
+}
 
 /*
  * Converts a string to a bool.
@@ -314,11 +297,31 @@ class App extends Component<{}, State> {
     el && el.scrollIntoView();
   };
 
-  _handleEditQuery = (query: string): void => this.setState({ query });
+  _handleEditQuery = (query: string): void => {
+      this.setState({ query })
+      this._onEditQuery( query )
+  };
 
   _handleToggleExplorer = () => {
     this.setState({ explorerIsOpen: !this.state.explorerIsOpen });
   };
+
+  // When the query and variables string is edited, update the URL bar so
+  // that it can be easily shared.
+  _onEditQuery = (newQuery: string): void => {
+    parameters.query = newQuery;
+    updateURL();
+  }
+
+  _onEditVariables = (newVariables: string): void => {
+    parameters.variables = newVariables;
+    updateURL();
+  }
+
+  _onEditOperationName = (newOperationName: string): void => {
+    parameters.operationName = newOperationName;
+    updateURL();
+  }
 
   render() {
     const { query, schema } = this.state;
@@ -344,6 +347,8 @@ class App extends Component<{}, State> {
           schema={schema}
           query={query}
           onEditQuery={this._handleEditQuery}
+          onEditVariables={this._onEditVariables}
+          onEditOperationName={this._onEditOperationName}
           response={response}
         >
           <GraphiQL.Toolbar>
