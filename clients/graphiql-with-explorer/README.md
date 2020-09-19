@@ -4,19 +4,15 @@
 
 Upstream from where this code was taken: https://github.com/OneGraph/graphiql-explorer-example
 
-Project: https://github.com/OneGraph/graphiql-explorer
-
 Run `npm run build` to generate the files under `build/`, they are taken directly from there
+
+Using [craco](https://www.npmjs.com/package/@craco/craco) to override the webpack config for the `build` to remove chunks and the hash in the JS/CSS filenames, so the JS asset to load is always `main.js`. Solution taken from [here](https://github.com/facebook/create-react-app/issues/5306#issuecomment-695173195).
 
 ---
 
 ## Original `README`
 
 Example usage of [OneGraph](https://www.onegraph.com)'s open source [GraphiQL explorer](https://github.com/OneGraph/graphiql-explorer).
-
-[OneGraph](https://www.onegraph.com) provides easy, consistent access to the APIs that underlie your business--all through the power of GraphQL.
-
-Sign up at [https://www.onegraph.com](https://www.onegraph.com).
 
 ## Setup
 
@@ -40,6 +36,6 @@ Your browser will automatically open to http://localhost:3000 with the explorer 
 
 ## Live demo
 
-The example app is deployed to GitHub pages at [https://onegraph.github.io/graphiql-explorer-example/](https://onegraph.github.io/graphiql-explorer-example/) and is in use in production at [https://www.onegraph.com/graphiql](https://www.onegraph.com/graphiql).
+The example app is deployed to GitHub pages at [https://onegraph.github.io/graphiql-explorer-example/](https://onegraph.github.io/graphiql-explorer-example/).
 
 ![Preview](https://user-images.githubusercontent.com/476818/51567716-c00dfa00-1e4c-11e9-88f7-6d78b244d534.gif)
