@@ -220,10 +220,11 @@ const DEFAULT_QUERY = `# Welcome to GraphiQL
 `
 
 var defaultQuery = (window.graphiQLWithExplorerClientForWP && window.graphiQLWithExplorerClientForWP.defaultQuery) ? window.graphiQLWithExplorerClientForWP.defaultQuery : DEFAULT_QUERY;
+var query = parameters.query || defaultQuery;
 
 class App extends Component<{}, State> {
   _graphiql: GraphiQL;
-  state = { schema: null, query: defaultQuery, explorerIsOpen: true };
+  state = { schema: null, query: query, explorerIsOpen: true };
 
   componentDidMount() {
     fetcher({
