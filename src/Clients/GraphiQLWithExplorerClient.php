@@ -13,7 +13,7 @@ class GraphiQLWithExplorerClient extends AbstractGraphiQLClient
     }
     protected function getJSFilename(): string
     {
-        return 'main.6a4c46b0.chunk.js';
+        return 'main.js';
     }
     /**
      * Assets folder name

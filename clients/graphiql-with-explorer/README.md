@@ -8,8 +8,6 @@ Project: https://github.com/OneGraph/graphiql-explorer
 
 Run `npm run build` to generate the files under `build/`, they are taken directly from there
 
-Then, check the name of the generated chunk, and add it on `function getJSFilename()` in class `GraphiQLWithExplorerClient`
-
 ---
 
 ## Original `README`
