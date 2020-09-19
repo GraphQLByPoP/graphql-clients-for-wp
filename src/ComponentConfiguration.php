@@ -16,6 +16,7 @@ class ComponentConfiguration
 
     private static $isGraphiQLClientEndpointDisabled;
     private static $graphiQLClientEndpoint;
+    private static $useGraphiQLExplorer;
     private static $isGoyagerClientEndpointDisabled;
     private static $voyagerClientEndpoint;
 
@@ -49,6 +50,27 @@ class ComponentConfiguration
         $envVariable = Environment::DISABLE_GRAPHIQL_CLIENT_ENDPOINT;
         $selfProperty = &self::$isGraphiQLClientEndpointDisabled;
         $defaultValue = false;
+        $callback = [EnvironmentValueHelpers::class, 'toBool'];
+
+        // Initialize property from the environment/hook
+        self::maybeInitializeConfigurationValue(
+            $envVariable,
+            $selfProperty,
+            $defaultValue,
+            $callback
+        );
+        return $selfProperty;
+    }
+
+    /**
+     * Use the GraphiQL explorer?
+     */
+    public static function useGraphiQLExplorer(): bool
+    {
+        // Define properties
+        $envVariable = Environment::USE_GRAPHIQL_EXPLORER;
+        $selfProperty = &self::$useGraphiQLExplorer;
+        $defaultValue = true;
         $callback = [EnvironmentValueHelpers::class, 'toBool'];
 
         // Initialize property from the environment/hook

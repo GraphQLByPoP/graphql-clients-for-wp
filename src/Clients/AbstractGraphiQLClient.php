@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace GraphQLByPoP\GraphQLClientsForWP\Clients;
 
-use GraphQLAPI\GraphQLAPI\Facades\ModuleRegistryFacade;
 use GraphQLByPoP\GraphQLClientsForWP\Clients\AbstractClient;
 use GraphQLByPoP\GraphQLClientsForWP\ComponentConfiguration;
-use GraphQLAPI\GraphQLAPI\ModuleResolvers\ClientFunctionalityModuleResolver;
 
 abstract class AbstractGraphiQLClient extends AbstractClient
 {
@@ -26,15 +24,22 @@ abstract class AbstractGraphiQLClient extends AbstractClient
     }
 
     /**
+     * Use GraphiQL Explorer?
+     * Overridable by GraphQL API for WP, to decided based on each screen
+     */
+    protected function useGraphiQLExplorer(): bool
+    {
+        return ComponentConfiguration::useGraphiQLExplorer();
+    }
+
+    /**
      * Indicate if the endpoint has been requested.
      * Check if GraphiQL Explorer is enabled or not
      */
     protected function isEndpointRequested(): bool
     {
-        $moduleRegistry = ModuleRegistryFacade::getInstance();
-        $useGraphiQLExplorer = $moduleRegistry->isModuleEnabled(ClientFunctionalityModuleResolver::GRAPHIQL_EXPLORER);
         return
-            $this->matchesGraphiQLExplorerRequiredState($useGraphiQLExplorer)
+            $this->matchesGraphiQLExplorerRequiredState($this->useGraphiQLExplorer())
             && parent::isEndpointRequested();
     }
 
