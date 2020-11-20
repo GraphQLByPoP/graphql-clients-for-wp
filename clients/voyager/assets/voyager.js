@@ -10,7 +10,7 @@
 * '  tRue  ','ON', and '1   ' will all evaluate as true.
 *
 * Taken from https://stackoverflow.com/a/264180
-* 
+*
 */
 function strToBool(s)
 {
@@ -55,7 +55,12 @@ if ((parameters.use_namespace && strToBool(parameters.use_namespace)) || (script
 }
 // Provide "versionConstraint" param either through URL or through script source
 if (parameters.versionConstraint || scriptParams.has('versionConstraint')) {
-  apiURL += (apiURLHasParams ? '&' : '?') + 'versionConstraint='+(parameters.versionConstraint || scriptParams.get('versionConstraint'));
+  apiURL += (apiURLHasParams ? '&' : '?') + 'versionConstraint=' + (parameters.versionConstraint || scriptParams.get('versionConstraint'));
+  apiURLHasParams = true;
+}
+// Provide "mutation_scheme" param either through URL or through script source
+if (parameters.mutation_scheme || scriptParams.has('mutation_scheme')) {
+  apiURL += (apiURLHasParams ? '&' : '?') + 'mutation_scheme=' + (parameters.mutation_scheme || scriptParams.get('mutation_scheme'));
   apiURLHasParams = true;
 }
 // Provide "fieldVersionConstraints[]" param either through URL or through script source
