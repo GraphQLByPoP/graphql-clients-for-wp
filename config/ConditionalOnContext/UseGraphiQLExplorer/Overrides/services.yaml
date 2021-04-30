@@ -5,4 +5,4 @@ services:
         autoconfigure: true
 
     GraphQLByPoP\GraphQLClientsForWP\Clients\GraphiQLClient:
-        class: '\GraphQLByPoP\GraphQLClientsForWP\ConditionalOnEnvironment\UseGraphiQLExplorer\Overrides\Services\Clients\GraphiQLWithExplorerClient'
+        class: '\GraphQLByPoP\GraphQLClientsForWP\ConditionalOnContext\UseGraphiQLExplorer\Overrides\Services\Clients\GraphiQLWithExplorerClient'
